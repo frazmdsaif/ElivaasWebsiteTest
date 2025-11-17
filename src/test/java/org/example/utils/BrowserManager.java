@@ -16,9 +16,9 @@ public class BrowserManager {
             throw new UnsupportedOperationException("only chrome supported");
 
         }
-
         ChromeOptions opion=new ChromeOptions();
         opion.addArguments("--headless");
+
 
         if(headless){
             return new ChromeDriver(opion);
