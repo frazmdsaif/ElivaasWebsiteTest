@@ -1,13 +1,12 @@
-package org.example.tests;
+package org.elivaas.tests;
 
-import org.example.utils.BrowserManager;
-import org.example.utils.PropertiesLoader;
+import org.elivaas.utils.BrowserManager;
+import org.elivaas.utils.PropertiesLoader;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
-import java.util.Properties;
 
 public class TestBasic {
 

@@ -1,12 +1,8 @@
-package org.example.tests;
+package org.elivaas.tests;
 
-import org.example.pages.HomePage;
-import org.example.utils.TakeScreenShot;
+import org.elivaas.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.example.utils.Utils;
-
-import java.io.IOException;
 
 public class TestCase1 extends TestBasic {
 

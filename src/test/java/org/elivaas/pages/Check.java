@@ -1,9 +1,8 @@
-package org.example.pages;
+package org.elivaas.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.example.utils.BrowserManager;
-import org.example.utils.SeleniumHelper;
-import org.example.utils.TakeScreenShot;
+import org.elivaas.utils.BrowserManager;
+import org.elivaas.utils.TakeScreenShot;
 
 import java.io.IOException;
 

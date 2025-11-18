@@ -3,8 +3,8 @@
 <suite name="ELIVAAS" parallel="methods" thread-count="1">
     <test name="Website Launch">
         <classes>
-            <class name="org.example.tests.TestCase1"/>
-            <class name="org.example.tests.LoginTest"/>
+            <class name="org.elivaas.tests.TestCase1"/>
+            <class name="org.elivaas.tests.LoginTest"/>
 
         </classes>
     </test>

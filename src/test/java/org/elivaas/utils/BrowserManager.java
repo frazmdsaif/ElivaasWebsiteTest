@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.elivaas.utils;
 
 
 import org.openqa.selenium.WebDriver;

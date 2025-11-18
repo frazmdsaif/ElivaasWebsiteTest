@@ -1,4 +1,4 @@
-package org.example.pages;
+package org.elivaas.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

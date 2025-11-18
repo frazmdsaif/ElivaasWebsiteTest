@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.elivaas.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

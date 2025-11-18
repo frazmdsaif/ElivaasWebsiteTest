@@ -1,6 +1,5 @@
-package org.example.tests;
+package org.elivaas.tests;
 
-import org.example.pages.SubmitUser;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
