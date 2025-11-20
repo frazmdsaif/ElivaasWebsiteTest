@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class BrowserManager {
     //test
+    //TEST2
 
     public static WebDriver doBrowserSetup(boolean headless) throws IOException {
         String name=PropertiesLoader.loadProperty("browser.name");
