@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.IOException;
 
 public class BrowserManager {
+    //test
 
     public static WebDriver doBrowserSetup(boolean headless) throws IOException {
         String name=PropertiesLoader.loadProperty("browser.name");
