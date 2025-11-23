@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
@@ -22,6 +23,10 @@ public class SeleniumHelper {
     public static void waitForElementToBeClickable(WebDriver driver, By locator){
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
         wait.until(ExpectedConditions.refreshed(elementToBeClickable(locator)));
+    }
+
+    public static void waitFor2Second(WebDriver driver){
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(2));
     }
 
 
