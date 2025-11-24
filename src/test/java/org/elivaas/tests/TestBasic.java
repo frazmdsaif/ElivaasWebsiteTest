@@ -21,8 +21,9 @@ public class TestBasic {
         String url= PropertiesLoader.loadProperty("url");
         WebDriver driver= BrowserManager.doBrowserSetup(false);
         tdriver.set(driver);
-        getDriver().get(url);
         getDriver().manage().window().maximize();
+        getDriver().get(url);
+
 
     }
 
