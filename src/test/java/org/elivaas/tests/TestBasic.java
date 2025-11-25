@@ -26,7 +26,7 @@ public class TestBasic {
     public void setup() throws IOException {
 
         String url = PropertiesLoader.loadProperty("url");
-        WebDriver driver = BrowserManager.doBrowserSetup(false);
+        WebDriver driver = BrowserManager.doBrowserSetup(true);
         tdriver.set(driver);
         getDriver().manage().window().maximize();
         getDriver().get(url);
