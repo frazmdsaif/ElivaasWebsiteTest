@@ -19,9 +19,8 @@ public class TestCase2 extends TestBasic{
 
     @Test(description = "Verify that search function is visible")
     public void verifyThatSearchFunctionIsVisible() {
-
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), new SearchFunction(getDriver()).selectDestinationVisible());
         boolean searchFunctionVisible =new SearchFunction(getDriver()).selectDestinationVisible().isDisplayed();
-        SeleniumHelper.waitFor2Second(getDriver());
         Assert.assertTrue(searchFunctionVisible, "Search function should be visible");
     }
 

@@ -28,7 +28,7 @@ public class TestCase1 extends TestBasic {
 
     @Test(description = "Verify that login/Sign up button is clickable")
     public void verifyThatLoginSignUpButtonIsClickable() {
-        SeleniumHelper.waitFor2Second(getDriver());
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), new HomePage(getDriver()).loginSignUpVisible());
         boolean isClickable =new HomePage(getDriver()).loginSignUpVisible().isEnabled();
         Assert.assertTrue(isClickable, "Login/Sign up button should be clickable");
     }
@@ -51,7 +51,7 @@ public class TestCase1 extends TestBasic {
     @Test(description = "Verify login/signup button text")
     public void verifyLoginSignUpButtonText() {
         HomePage homePage=new HomePage(getDriver());
-        SeleniumHelper.waitFor2Second(getDriver());
+        SeleniumHelper.waitForElementToBeClickable(getDriver(),new HomePage(getDriver()).loginSignUpVisible());
         String buttonText =homePage.loginSignUpVisible().getText().trim();
         Assert.assertEquals(buttonText, "Log In / Sign Up", "Button text should be 'Log In / Sign Up'");
     }
@@ -65,14 +65,14 @@ public class TestCase1 extends TestBasic {
 
     @Test(description = "Verify partner with us button is clickable")
     public void verifyPartnerWithUsButtonIsClickable() {
-        SeleniumHelper.waitFor2Second(getDriver());
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), new HomePage(getDriver()).partnerWithUsVisible());
         boolean isClickable =new HomePage(getDriver()).partnerWithUsVisible().isEnabled();
         Assert.assertTrue(isClickable, "Partner with us button should be clickable");
     }
 
     @Test(description = "Verify partner with us button text")
     public void verifyPartnerWithUsButtonText() {
-        SeleniumHelper.waitFor2Second(getDriver());
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), new HomePage(getDriver()).partnerWithUsVisible());
         String buttonText =new HomePage(getDriver()).partnerWithUsVisible().getText().trim();
         Assert.assertEquals(buttonText, "Partner with Us", "Button text should be 'Partner with Us'");
     }
