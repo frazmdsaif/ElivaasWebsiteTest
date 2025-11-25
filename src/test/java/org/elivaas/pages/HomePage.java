@@ -17,14 +17,23 @@ public class HomePage {
     @FindBy(xpath = "(//div)[2]")
     private WebElement banner;
 
-    @FindBy(xpath = "//button[normalize-space()='Log In / Sign Up']")
+    @FindBy(xpath = "//button[text()='Log In / Sign Up']")
     private WebElement loginSignUp ;
+
+    @FindBy(xpath = "//*[text()='Partner with Us']")
+    private WebElement partnerWithUs;
+
+
+
+    public  WebElement partnerWithUsVisible(){
+        return partnerWithUs;
+    }
 
     public  WebElement BannerVisible(){
         return banner;
     }
 
-    public WebElement loginSignUpVisible(){
+    public  WebElement loginSignUpVisible(){
         return loginSignUp;
     }
 
