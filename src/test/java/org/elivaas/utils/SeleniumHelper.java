@@ -20,7 +20,7 @@ public class SeleniumHelper {
         wait.until(ExpectedConditions.visibilityOf(locator));
     }
 
-    public static void waitForElementToBeClickable(WebDriver driver, By locator){
+    public static void waitForElementToBeClickable(WebDriver driver, WebElement locator){
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
         wait.until(ExpectedConditions.refreshed(elementToBeClickable(locator)));
     }
