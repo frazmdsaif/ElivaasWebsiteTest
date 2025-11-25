@@ -8,6 +8,7 @@ import org.elivaas.utils.PropertiesLoader;
 import org.elivaas.utils.SeleniumHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Sleeper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -56,23 +57,42 @@ public class TestCase2 extends TestBasic{
     }
 
     @Test(description = "verify that first city in list clickable")
-    public void verifyThatFirstCityInListShouldOpenNewCityPage() throws IOException {
+    public void verifyThatFirstCityInListShouldOpenNewCityPage() throws IOException,InterruptedException {
         String cityName = PropertiesLoader.loadProperty("city");
         SearchFunction searchFunction=new SearchFunction(getDriver());
         List<WebElement> result=searchFunction.listOfCityVisible(cityName);
-        SeleniumHelper.waitFor2Second(getDriver());
         result.get(0).click();
-        searchFunction.searchSubmitButtonVisible().click();
-        SeleniumHelper.waitFor2Second(getDriver());
-
+        Thread.sleep(2000);
+        searchFunction.searchSubmitButton().click();
+        Thread.sleep(3000);
+        String url=getDriver().getCurrentUrl();
+        Assert.assertTrue(url.contains(cityName.toLowerCase()), "URL should contain city name");
     }
 
     @Test(description = "verify that submit button is clickable")
     public void verifyThatSubmitButtonIsClickable() {
         SearchFunction searchFunction=new SearchFunction(getDriver());
-        SeleniumHelper.waitForElementToBeClickable(getDriver(), searchFunction.searchSubmitButtonVisible());
-        boolean isClickable =new SearchFunction(getDriver()).searchSubmitButtonVisible().isEnabled();
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), searchFunction.searchSubmitButton());
+        boolean isClickable =new SearchFunction(getDriver()).searchSubmitButton().isEnabled();
         Assert.assertTrue(isClickable, "Submit button should be clickable");
     }
+
+    @Test(description = "verify that check-in date is clickable")
+    public void verifyThatCheckInButtonIsClickable() {
+        SearchFunction searchFunction=new SearchFunction(getDriver());
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), searchFunction.checkInDateButton());
+        boolean isClickable =new SearchFunction(getDriver()).checkInDateButton().isEnabled();
+        Assert.assertTrue(isClickable, "Check-in button should be clickable");
+    }
+
+    @Test(description = "verify that check-out date is clickable")
+    public void verifyThatCheckOutButtonIsClickable() {
+        SearchFunction searchFunction=new SearchFunction(getDriver());
+        SeleniumHelper.waitForElementToBeClickable(getDriver(), searchFunction.checkOutDateButton());
+        boolean isClickable =new SearchFunction(getDriver()).checkOutDateButton().isEnabled();
+        Assert.assertTrue(isClickable, "Check-out button should be clickable");
+    }
+
+
 
 }

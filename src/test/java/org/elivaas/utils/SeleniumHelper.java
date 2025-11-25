@@ -27,6 +27,7 @@ public class SeleniumHelper {
 
     public static void waitFor2Second(WebDriver driver){
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(2));
+        wait.withTimeout(Duration.ofSeconds(2));
     }
 
 
