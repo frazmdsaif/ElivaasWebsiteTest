@@ -1,8 +1,10 @@
 package org.elivaas.pages;
 
 import org.elivaas.utils.PropertiesLoader;
+import org.elivaas.utils.SeleniumHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
@@ -16,12 +18,23 @@ public class ListingPage {
         this.driver=driver;
     }
 
-    public void openListingPageVia() throws IOException,InterruptedException {
+    //write all the locators here
+
+    @FindBy(xpath = "//pre[@class='inline-block font-mono']")
+    private WebElement villaCountInCity;
+
+    public void openListingPageViaTest() throws IOException,InterruptedException {
         String cityName = PropertiesLoader.loadProperty("city");
         SearchFunction searchFunction=new SearchFunction(driver);
         List<WebElement> result=searchFunction.listOfCityVisible(cityName);
         result.get(0).click();
         searchFunction.searchSubmitButton().click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
+    }
+
+    public String villaCountInCityVisible() throws IOException,InterruptedException{
+        //openListingPageViaTest();
+        SeleniumHelper.waitForElementToBeVisible(driver, villaCountInCity);
+        return villaCountInCity.getText();
     }
 }

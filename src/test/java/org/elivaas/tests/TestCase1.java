@@ -58,7 +58,7 @@ public class TestCase1 extends TestBasic {
 
     @Test(description = "Verify partner with us button is visible")
     public void verifyPartnerWithUsButtonIsVisible() {
-        SeleniumHelper.waitFor2Second(getDriver());
+        SeleniumHelper.waitForElementToBeVisible(getDriver(), new HomePage(getDriver()).partnerWithUsVisible());
         boolean partnerWithUsButton =new HomePage(getDriver()).partnerWithUsVisible().isDisplayed();
         Assert.assertTrue(partnerWithUsButton, "Partner with us button should be visible");
     }
