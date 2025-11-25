@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="ELIVAAS" parallel="classes" thread-count="2">
+<suite name="ELIVAAS" parallel="methods" thread-count="1">
     <test name="Website Launch">
         <classes>
             <class name="org.elivaas.tests.TestCase1"/>
             <class name="org.elivaas.tests.LoginTest"/>
             <class name="org.elivaas.tests.TestCase2"/>
-
+            <class name="org.elivaas.tests.TestCase3"/>
         </classes>
     </test>
 </suite>
