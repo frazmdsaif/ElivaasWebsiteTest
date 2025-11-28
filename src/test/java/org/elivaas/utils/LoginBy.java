@@ -6,19 +6,16 @@ import org.elivaas.tests.TestBasic;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.time.Duration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginBy extends TestBasic {
-    public static String getOTP() throws IOException {
+    public static String getOTP() throws IOException, InterruptedException {
+        Thread.sleep(8000);
         String FindOTP = "";
         try {
             // Step 1: Execute ADB command to fetch SMS inbox
@@ -44,25 +41,20 @@ public class LoginBy extends TestBasic {
 
             if (matcher.find()) {
                 String otp = matcher.group(0);
-                //System.out.println("OTP FOUND: " + otp);
                 FindOTP = otp;
-
-
             } else {
                 System.out.println("OTP not found in SMS inbox./make sure devloper option ON and USB debug");
             }
-
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         return FindOTP;
     }
 
-    public static void gmail(WebDriver wb) throws InterruptedException {
+    public static void gmail(WebDriver wb) throws InterruptedException,IOException {
         WebDriver driver = getDriver();
-        driver=wb;
-
         HomePage homePage = new HomePage(driver);
+        SeleniumHelper.waitForElementToBeClickable(driver, homePage.loginSignUpVisible());
         homePage.loginSignUpVisible().click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[normalize-space()='Continue with Google']")).click();
@@ -80,6 +72,7 @@ public class LoginBy extends TestBasic {
         //test.addScreenCaptureFromPath("image1.png").pass(MediaEntityBuilder.createScreenCaptureFromPath("image1.png").build());
 
         try {
+            String email=PropertiesLoader.loadProperty("email");
             driver.findElement(By.id("identifierId")).sendKeys("elivaas061@gmail.com");
         } catch (ElementNotInteractableException e) {
             System.out.println("Google login flow is missing" + e.getMessage());
@@ -88,7 +81,8 @@ public class LoginBy extends TestBasic {
 
         driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//input[@name='Passwd']")).sendKeys("Saif@123");
+        String password=PropertiesLoader.loadProperty("password");
+        driver.findElement(By.xpath("//input[@name='Passwd']")).sendKeys(password);
         Thread.sleep(500);
 
         driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();

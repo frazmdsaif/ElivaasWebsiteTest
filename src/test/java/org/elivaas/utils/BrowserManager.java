@@ -17,12 +17,18 @@ public class BrowserManager {
             throw new UnsupportedOperationException("only chrome supported");
 
         }
-        ChromeOptions opion=new ChromeOptions();
-        opion.addArguments("--headless");
+        ChromeOptions option=new ChromeOptions();
+        option.addArguments("--headless");
+        //option.addArguments("--disable-blink-features=AutomationControlled");
+        //option.addArguments("profile-directory=Default");
+        //option.addArguments("\"excludeSwitches\", [\"enable-automation\"]");
+        //option.addArguments("\"useAutomationExtension\", False");
+        option.addArguments("profile-directory=Profile 1");
+
 
 
         if(headless){
-            return new ChromeDriver(opion);
+            return new ChromeDriver(option);
         }else {
             return new ChromeDriver();
         }
