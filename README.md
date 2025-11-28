@@ -32,8 +32,8 @@ This repository contains automated test cases and supporting files for validatin
 ## Folder Structure
 - `/src/test/java` – Test cases  
 - `/src/main/java` – Utilities & drivers  
-- `/resources` – Config files & test data  
-- `/screenshots` – Failure screenshots  
+- `/src/test/resources` – Config files & test data  
+- `/src/test/resources/screenshots` – Failure screenshots  
 
 ## Author
 **Md Saif Fraz**  
