@@ -17,7 +17,7 @@ public class HomePage {
     @FindBy(xpath = "(//div)[2]")
     private WebElement banner;
 
-    @FindBy(xpath = "//button[text()='Log In / Sign Up']")
+    @FindBy(xpath = "//*[text()='Log In / Sign Up']")
     private WebElement loginSignUp ;
 
     @FindBy(xpath = "//*[text()='Partner with Us']")

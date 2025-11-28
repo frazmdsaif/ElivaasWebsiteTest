@@ -4,9 +4,9 @@
     <test name="Website Launch">
         <classes>
             <class name="org.elivaas.tests.TestCase1"/>
-        <!--    <class name="org.elivaas.tests.LoginTest"/>
+            <class name="org.elivaas.tests.LoginTest"/>
             <class name="org.elivaas.tests.TestCase2"/>
-            <class name="org.elivaas.tests.TestCase3"/> -->
+            <class name="org.elivaas.tests.TestCase3"/>
         </classes>
     </test>
 </suite>
