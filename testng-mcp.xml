@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MCP Test Suite" parallel="tests" thread-count="3">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="https://www.elivaas.com"/>
+    
+    <test name="Login Tests">
+        <classes>
+            <class name="org.elivaas.tests.LoginTest"/>
+        </classes>
+    </test>
+    
+    <!-- Add more test classes here as needed -->
+    
+    <listeners>
+        <listener class-name="org.elivaas.core.TestListener"/>
+    </listeners>
+</suite>
