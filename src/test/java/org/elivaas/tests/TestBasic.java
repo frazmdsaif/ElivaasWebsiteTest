@@ -18,6 +18,7 @@ import java.util.Date;
 
 public class TestBasic {
     private static final ThreadLocal<WebDriver> tdriver = new ThreadLocal<>();
+
     public static WebDriver getDriver() {
         return tdriver.get();
     }
@@ -37,25 +38,10 @@ public class TestBasic {
         if (ITestResult.FAILURE == result.getStatus()) {
             TakeScreenShot.click(getDriver());
         }
-        
+
         if (getDriver() != null) {
             getDriver().quit();
             tdriver.remove();
         }
     }
-
-//    public static void captureScreenshot(String testName) {
-//        try {
-//            File screenshotFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-//            String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-//            String screenshotName = testName + "_" + timestamp + ".png";
-//            File targetFile = new File(SCREENSHOT_PATH + screenshotName);
-//            FileUtils.copyFile(screenshotFile, targetFile);
-//
-//            // Attach screenshot to TestNG report
-//            System.out.println("Screenshot saved: " + targetFile.getAbsolutePath());
-//        } catch (Exception e) {
-//            System.out.println("Failed to capture screenshot: " + e.getMessage());
-//        }
-//    }
 }

@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class TestCase4 extends TestBasic{
 
-    @Test(description = "Verify that property page is visible successfully")
+    @Test(description = "Verify that property DETAILS page is visible successfully")
     public void verifyThatPropertyPageIsVisible() throws InterruptedException, IOException {
         ListingPage listingPage=new ListingPage(getDriver());
         listingPage.openListingPageViaTest();
