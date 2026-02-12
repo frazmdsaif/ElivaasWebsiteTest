@@ -21,6 +21,12 @@ public class PropertyDetailPage {
     @FindBy(xpath = "//div[contains(@class,'grid gap-6 px-3 sm:px-2 md:px-8 lg:grid-cols-2 xl:grid-cols-3 sm:pb-10 lg:px-0 xl:px-0 grid-cols-1 sm:grid-cols-2')]/div[1]")
     WebElement firstCard;
 
+    @FindBy(xpath = "//span[normalize-space()='Check-In']")
+    WebElement checkin;
+
+    @FindBy(xpath = "//span[normalize-space()='Check-Out']")
+    WebElement checkout;
+
     public WebElement clickOnsumbitOnHome(){
         SeleniumHelper.waitForElementToBeVisible(driver,sumbitonHome);
         return sumbitonHome;
@@ -35,7 +41,7 @@ public class PropertyDetailPage {
         return lines[0].trim();
     }
 
-    public String CurrentPropertyPrice(){
+    public void InternalCurrentPropertyPrice(){
         clickOnsumbitOnHome().click();
         SeleniumHelper.waitForElementToBeVisible(driver,firstCard);
         firstCard.click();
@@ -49,9 +55,39 @@ public class PropertyDetailPage {
                 }
             }
         }
-        String priceText=driver.findElement(By.xpath("//div[@class='px-6 space-y-4']//span[@class='text-xl sm:text-2xl font-bold text-primary-950 dark:text-white']")).getText();
-        String cleanPrice = priceText.replace("₹", "").replace(",", "").trim();
-        return cleanPrice;
+
+    }
+
+    public String CurrentPropertyPrice(){
+        InternalCurrentPropertyPrice();
+        WebElement priceText=driver.findElement(By.xpath("//div[@class='px-6 space-y-4']//span[@class='text-xl sm:text-2xl font-bold text-primary-950 dark:text-white']"));
+        String clean    =priceText.getText().replace("₹", "").replace(",", "").trim();
+        return clean;
+
+    }
+
+    public WebElement clickOnCheckin(){
+        InternalCurrentPropertyPrice();
+        SeleniumHelper.waitForElementToBeVisible(driver,checkin);
+        return checkin;
+    }
+
+    public WebElement clickOnCheckout(){
+        InternalCurrentPropertyPrice();
+        SeleniumHelper.waitForElementToBeVisible(driver,checkout);
+        return checkout;
+    }
+
+    public void dateSelection(){
+        //SeleniumHelper.waitForElementToBeVisible(driver,clickOnCheckin());
+        WebElement date=clickOnCheckin();
+        date.click();
+        driver.findElement(By.xpath("//button[@aria-label='Tuesday, March 10th, 2026']")).click();
+        driver.findElement(By.xpath("//button[@aria-label='Wednesday, March 11th, 2026']")).click();
+
+
+        //clickOnCheckout().sendKeys("2026-03-05");
+
     }
 
 
