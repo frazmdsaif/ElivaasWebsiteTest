@@ -20,4 +20,26 @@ public class TestCase5 extends TestBasic{
         System.out.println("Price as integer: " + price);
         assert price > 1 : "Price should be greater than 1";
     }
+
+    @Test(description = "verify that checkin button is visible")
+    public void verifyThatCheckinButtonIsVisible() throws InterruptedException {
+        PropertyDetailPage propertyDetailPage=new PropertyDetailPage(getDriver());
+        Boolean status_of_button=propertyDetailPage.clickOnCheckin().isDisplayed();
+        assert status_of_button : "Checkin button should be visible";
+    }
+
+    @Test(description = "verify that checkout button is visible")
+    public void verifyThatCheckoutButtonIsVisible() throws InterruptedException {
+        PropertyDetailPage propertyDetailPage=new PropertyDetailPage(getDriver());
+        Boolean status_of_button=propertyDetailPage.clickOnCheckout().isDisplayed();
+        assert status_of_button : "Checkout button should be visible";
+    }
+
+    @Test(description = "date selection on pdp page")
+    public void dateSelectionOnPdpPage() throws InterruptedException {
+        PropertyDetailPage propertyDetailPage=new PropertyDetailPage(getDriver());
+        propertyDetailPage.dateSelection();
+        Thread.sleep(2000);
+    }
+
 }

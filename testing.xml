@@ -7,6 +7,8 @@
             <class name="org.elivaas.tests.LoginTest"/>
             <class name="org.elivaas.tests.TestCase2"/>
             <class name="org.elivaas.tests.TestCase3"/>
+            <class name="org.elivaas.tests.TestCase4"/>
+            <class name="org.elivaas.tests.TestCase5"/>
         </classes>
     </test>
 </suite>
