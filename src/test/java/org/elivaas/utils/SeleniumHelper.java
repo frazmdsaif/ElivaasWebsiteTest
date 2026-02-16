@@ -1,6 +1,7 @@
 package org.elivaas.utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -26,9 +27,10 @@ public class SeleniumHelper {
     }
 
     public static void waitFor2Second(WebDriver driver){
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(2));
-        wait.withTimeout(Duration.ofSeconds(2));
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(3));
+        wait.withTimeout(Duration.ofSeconds(3));
     }
+
 
 
 }
