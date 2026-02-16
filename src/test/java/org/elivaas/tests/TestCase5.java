@@ -1,6 +1,10 @@
 package org.elivaas.tests;
 
 import org.elivaas.pages.PropertyDetailPage;
+import org.elivaas.utils.SeleniumHelper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 public class TestCase5 extends TestBasic{
@@ -39,7 +43,12 @@ public class TestCase5 extends TestBasic{
     public void dateSelectionOnPdpPage() throws InterruptedException {
         PropertyDetailPage propertyDetailPage=new PropertyDetailPage(getDriver());
         propertyDetailPage.dateSelection();
-        Thread.sleep(2000);
+        String name=propertyDetailPage.get_text_of_discount();
+        assert name.equals("Discount Coupon");
     }
+
+    //@Test(description = "")
+
+
 
 }

@@ -2,6 +2,7 @@ package org.elivaas.pages;
 
 import org.elivaas.utils.SeleniumHelper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,22 @@ public class PropertyDetailPage {
 
     @FindBy(xpath = "//span[normalize-space()='Check-Out']")
     WebElement checkout;
+
+    @FindBy(xpath = "//button[text()='Proceed to Pay']")
+    WebElement proceed_to_pay;
+
+    @FindBy(xpath = "//*[text()='Discount Coupon']")
+    WebElement discount_text;
+
+    public String get_text_of_discount(){
+        SeleniumHelper.waitForElementToBeVisible(driver,discount_text);
+        return discount_text.getText();
+    }
+
+    public WebElement click_on_proceed_to_pay(){
+        SeleniumHelper.waitForElementToBeVisible(driver,proceed_to_pay);
+        return proceed_to_pay;
+    }
 
     public WebElement clickOnsumbitOnHome(){
         SeleniumHelper.waitForElementToBeVisible(driver,sumbitonHome);
@@ -68,6 +85,7 @@ public class PropertyDetailPage {
 
     public WebElement clickOnCheckin(){
         InternalCurrentPropertyPrice();
+        dragPage(300);
         SeleniumHelper.waitForElementToBeVisible(driver,checkin);
         return checkin;
     }
@@ -78,15 +96,21 @@ public class PropertyDetailPage {
         return checkout;
     }
 
+    public void dragPage(int pixel){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, " + pixel + ");");
+    }
+
+
     public void dateSelection(){
-        //SeleniumHelper.waitForElementToBeVisible(driver,clickOnCheckin());
         WebElement date=clickOnCheckin();
         date.click();
-        driver.findElement(By.xpath("//button[@aria-label='Tuesday, March 10th, 2026']")).click();
-        driver.findElement(By.xpath("//button[@aria-label='Wednesday, March 11th, 2026']")).click();
-
-
-        //clickOnCheckout().sendKeys("2026-03-05");
+        WebElement check_in=driver.findElement(By.xpath("//button[@aria-label='Tuesday, March 10th, 2026']"));
+        SeleniumHelper.waitForElementToBeVisible(driver,check_in);
+        check_in.click();
+        WebElement check_out=driver.findElement(By.xpath("//button[@aria-label='Wednesday, March 11th, 2026']"));
+        SeleniumHelper.waitForElementToBeVisible(driver,check_out);
+        check_out.click();
 
     }
 
