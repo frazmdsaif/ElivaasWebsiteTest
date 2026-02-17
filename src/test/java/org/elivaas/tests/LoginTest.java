@@ -27,12 +27,10 @@ public class LoginTest extends TestBasic {
         SeleniumHelper.waitForElementToBeClickable(getDriver(), homePage.loginSignUpVisible());
         homePage.loginSignUpVisible().click();
         UserLogin userLogin = new UserLogin(getDriver());
-        String number= PropertiesLoader.loadProperty("phone");
-        userLogin.enterPhoneNumber(number);
+        userLogin.enterPhoneNumber(PropertiesLoader.loadProperty("phone"));
         userLogin.clickContinueButton();
         LoginBy login = new LoginBy();
-        String otpRecieved =login.getOTP();
-        userLogin.enterOtp(otpRecieved);
+        userLogin.enterOtp(login.getOTP());
         Thread.sleep(2000);
         getDriver().navigate().refresh();
         String nameAfterLogin=getDriver().findElement(By.xpath("//span[@class='text-sm font-semibold']")).getText();
