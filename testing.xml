@@ -9,6 +9,7 @@
             <class name="org.elivaas.tests.TestCase3"/>
             <class name="org.elivaas.tests.TestCase4"/>
             <class name="org.elivaas.tests.TestCase5"/>
+            <class name="org.elivaas.tests.TestCase6"/>
         </classes>
     </test>
 </suite>
