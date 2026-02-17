@@ -3,13 +3,12 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class SlackNotifier {
-
-    private static final String SLACK_WEBHOOK_URL =
-            "https://hooks.slack.com/services/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";
+public class SlackNotifier  {
 
     public static void send(String message) {
         try {
+            String SLACK_WEBHOOK_URL = PropertiesLoader.loadProperty("slack");
+            System.out.println("Sending Slack notification...");
             URL url = new URL(SLACK_WEBHOOK_URL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
