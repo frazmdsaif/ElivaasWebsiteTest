@@ -14,9 +14,7 @@ public class TakeScreenShot {
         TakesScreenshot screenshot=(TakesScreenshot) driver;
 
         File file =screenshot.getScreenshotAs(OutputType.FILE);
-        String filename="src/test/resources/Screenshots"+Utils.generateCurrentDateAndTime()+".png";
+        String filename="src/test/resources/Screenshots/"+Utils.generateCurrentDateAndTime()+".png";
         FileUtils.copyFile(file,new File(filename));
-
-
     }
 }
