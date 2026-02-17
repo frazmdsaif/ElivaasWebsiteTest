@@ -85,7 +85,7 @@ public class PropertyDetailPage {
 
     public WebElement clickOnCheckin(){
         InternalCurrentPropertyPrice();
-        dragPage(300);
+        dragPage(400);
         SeleniumHelper.waitForElementToBeVisible(driver,checkin);
         return checkin;
     }
@@ -102,17 +102,20 @@ public class PropertyDetailPage {
     }
 
 
-    public void dateSelection(){
+    public void dateSelection() throws InterruptedException{
         WebElement date=clickOnCheckin();
         date.click();
         WebElement check_in=driver.findElement(By.xpath("//button[@aria-label='Tuesday, March 10th, 2026']"));
         SeleniumHelper.waitForElementToBeVisible(driver,check_in);
         check_in.click();
+        Thread.sleep(1000);
         WebElement check_out=driver.findElement(By.xpath("//button[@aria-label='Wednesday, March 11th, 2026']"));
         SeleniumHelper.waitForElementToBeVisible(driver,check_out);
         check_out.click();
-
+        Thread.sleep(1000);
     }
+
+
 
 
 }

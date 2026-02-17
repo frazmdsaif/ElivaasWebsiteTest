@@ -31,7 +31,13 @@ public class UserLogin {
     }
 
     public void clickContinueButton(){
-        continueButton.click();
+        SeleniumHelper.waitForElementToBeClickable(driver, continueButton);
+        try {
+            continueButton.click();
+        } catch (Exception e) {
+            // Fallback to JavaScript click if regular click fails
+            ((org.openqa.selenium.JavascriptExecutor) driver).executeScript("arguments[0].click();", continueButton);
+        }
     }
 
     private String getOtpInputXPath(int index) {
@@ -42,8 +48,9 @@ public class UserLogin {
         for(int i = 1; i <= otp.length(); i++) {
             String xpath = getOtpInputXPath(i);
             WebElement otpInput = driver.findElement(By.xpath(xpath));
+            SeleniumHelper.waitForElementToBeVisible(driver, otpInput);
+            SeleniumHelper.waitForElementToBeClickable(driver, otpInput);
             otpInput.sendKeys(String.valueOf(otp.charAt(i-1)));
-
         }
     }
 }
