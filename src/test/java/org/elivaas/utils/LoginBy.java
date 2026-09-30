@@ -14,7 +14,26 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginBy extends TestBasic {
+
+    /**
+     * Returns the OTP for the current login attempt, fetched from the OTP API.
+     *
+     * Call this AFTER the site has sent the OTP (e.g. after clicking the
+     * continue/send-OTP button). It polls the API for up to 60 seconds for an
+     * OTP received after this call started, then falls back to the latest OTP
+     * the API knows about.
+     */
     public static String getOTP() throws IOException, InterruptedException {
+        return OtpApiClient.waitForFreshOtp(java.time.Instant.now(), 60);
+    }
+
+    /**
+     * @deprecated Replaced by the OTP API ({@link OtpApiClient}). The ADB
+     * approach needs a physical device with USB debugging enabled and is no
+     * longer used. Kept for reference only.
+     */
+    @Deprecated(since = "2026-09-30", forRemoval = false)
+    public static String getOTPviaAdb() throws IOException, InterruptedException {
         Thread.sleep(8000);
         String FindOTP = "";
         try {
