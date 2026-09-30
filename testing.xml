@@ -10,6 +10,11 @@
             <class name="org.elivaas.tests.TestCase4"/>
             <class name="org.elivaas.tests.TestCase5"/>
             <class name="org.elivaas.tests.TestCase6"/>
+            <class name="org.elivaas.tests.ListingFiltersTest"/>
+            <class name="org.elivaas.tests.BookingPanelTest"/>
+            <class name="org.elivaas.tests.EndToEndBookingFlowTest"/>
+            <class name="org.elivaas.tests.MyBookingsTest"/>
+            <class name="org.elivaas.tests.PaymentPageTest"/>
         </classes>
     </test>
 </suite>
